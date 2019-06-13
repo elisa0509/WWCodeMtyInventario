@@ -1,0 +1,38 @@
+﻿@model List<Inventario.Negocio.POCO.Categoria>
+@{
+    ViewData["Title"] = "Index";
+   
+}
+
+<h1>Categorias</h1>
+
+<a class="nav-link text-dark" asp-area="" asp-controller="Categoria" asp-action="Agregar">Agregar Categoria</a>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Acciones</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Nombre
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary fa fa-edit" onclick="window.location.href='@Url.Action("Editar","Categoria", new { id = item.Id })'"> </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+   
+
+</div>
+
+
